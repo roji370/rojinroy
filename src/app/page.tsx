@@ -1113,7 +1113,7 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
                 src={`/${lightboxImages[lightboxIndex]}`}
                 alt="Enlarged screenshot"
-                className="w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl"
+                className="max-w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl"
               />
 
               {/* Caption / Image count */}

@@ -448,7 +448,7 @@ export default function Project6() {
                 transition={{ duration: 0.3 }}
                 src={projectImages[lightboxIndex]}
                 alt="Enlarged screenshot"
-                className="w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl"
+                className="max-w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl"
               />
 
               {projectImages.length > 1 && (
