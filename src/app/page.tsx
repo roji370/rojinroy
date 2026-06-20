@@ -1104,17 +1104,27 @@ export default function Home() {
             )}
 
             {/* Active Image container with zoom in/out entry animations */}
-            <div className="relative max-w-[90vw] max-h-[85vh] flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
-              <motion.img
+            <div className="flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
+              <motion.div
                 key={lightboxIndex}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
-                src={`/${lightboxImages[lightboxIndex]}`}
-                alt="Enlarged screenshot"
-                className="max-w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl"
-              />
+                className="relative rounded-xl border border-white/10 shadow-2xl overflow-hidden"
+                style={{ width: "min(90vw, calc(85vh * 16 / 9))", height: "min(85vh, calc(90vw * 9 / 16))" }}
+              >
+                <NextImage
+                  src={`/${lightboxImages[lightboxIndex]}`}
+                  alt="Enlarged screenshot"
+                  fill
+                  quality={100}
+                  sizes="100vw"
+                  className="object-contain"
+                  unoptimized={false}
+                  priority
+                />
+              </motion.div>
 
               {/* Caption / Image count */}
               {lightboxImages.length > 1 && (
