@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Rec Model | Rojin Roy Portfolio</title>
+  <meta name="description" content="Detailed overview of Course Recommendation Model - an AI-driven academic course suggesting tool." />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- FLOATING HEADER / NAVBAR -->
+  <header id="header" class="scrolled">
+    <div class="container nav-wrapper">
+      <a href="index.html#hero" class="logo-container">
+        <div class="logo-dot"></div>
+        <span class="logo-text">Rojin Roy</span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#hero" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="index.html#projects" class="nav-link active">Projects</a></li>
+          <li><a href="index.html#guestbook" class="nav-link">Guestbook</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PROJECT DETAILS HERO -->
+  <section style="min-height: auto; padding-top: 150px; padding-bottom: 50px;">
+    <div class="container">
+      <a href="index.html#projects" class="project-link" style="margin-bottom: 2rem; display: inline-flex;">
+        <i class="fa-solid fa-arrow-left"></i> Back to Projects
+      </a>
+      
+      <span class="sub-heading">Machine Learning & AI</span>
+      <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem;">Course Recommendation Model</h1>
+      
+      <div class="project-tags" style="margin-bottom: 2rem;">
+        <span class="project-tag-item">Python</span>
+        <span class="project-tag-item">Scikit-Learn</span>
+        <span class="project-tag-item">Pandas</span>
+        <span class="project-tag-item">Flask API</span>
+        <span class="project-tag-item">MongoDB</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS CONTENT -->
+  <section style="min-height: auto; padding: 50px 0;">
+    <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem;">
+      <div class="about-text-container">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Project Overview</h3>
+        <p>
+          The <strong>Course Recommendation Model</strong> is an intelligent system built during my undergrad studies to solve a common problem in academic environments: curriculum overload and decision fatigue. By analyzing student performance metrics, individual career aspirations, and historic enrollment statistics, the system recommends optimal course selections tailored for each student.
+        </p>
+        
+        <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem;">Key Features</h3>
+        <ul style="list-style-position: inside; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.8rem;">
+          <li><strong>Content-Based Filtering:</strong> Recommends courses matching students' historical interest profile.</li>
+          <li><strong>Collaborative Filtering:</strong> Leverages peer performance profiles to recommend courses where students with similar profiles excelled.</li>
+          <li><strong>Prerequisite Validator:</strong> Built-in graph algorithm to check and warn students of missing prerequisites in real-time.</li>
+          <li><strong>API Integration:</strong> Exposes recommendations via a lightweight Flask JSON API.</li>
+        </ul>
+
+        <h3 style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem;">Technical Execution</h3>
+        <p>
+          The core ML pipeline is built in <strong>Python</strong> using <strong>Scikit-Learn</strong> for vectorization (TF-IDF on course syllabus data) and Cosine Similarity computations. We utilized <strong>Pandas</strong> and <strong>NumPy</strong> for dataset ingestion and cleaning. The system utilizes <strong>MongoDB</strong> to store course metadata, user logs, and enrollment vectors.
+        </p>
+      </div>
+
+      <div>
+        <!-- Media / Graphics Card Mockup -->
+        <div class="about-image-wrapper" style="margin-bottom: 2rem;">
+          <div class="about-img-card" style="aspect-ratio: 16/10;">
+            <img src="assets/project-1.png" alt="Course Rec Model details" class="about-img-styled" />
+          </div>
+        </div>
+
+        <div class="stat-card" style="text-align: left; padding: 2rem;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Project Details</h4>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 0.75rem 0; color: var(--text-muted); font-weight: 500;">Role</td>
+              <td style="padding: 0.75rem 0; font-weight: 600; text-align: right;">ML Developer</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 0.75rem 0; color: var(--text-muted); font-weight: 500;">Timeline</td>
+              <td style="padding: 0.75rem 0; font-weight: 600; text-align: right;">S4 Semester Project</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 0.75rem 0; color: var(--text-muted); font-weight: 500;">Code Base</td>
+              <td style="padding: 0.75rem 0; font-weight: 600; text-align: right;">Open Source</td>
+            </tr>
+          </table>
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+            <a href="https://github.com/roji370/microproject-s4" target="_blank" class="btn btn-primary" style="flex: 1; padding: 0.6rem 1rem; font-size: 0.85rem;">
+              <i class="fa-brands fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVERY GUESTBOOK (SOCKET.IO COMMENTS) -->
+  <section class="section-padding guestbook-section" style="border-top: 1px solid var(--border-color); background: rgba(11, 21, 36, 0.1);">
+    <div class="container">
+      <span class="sub-heading">Project Feedback</span>
+      <h2 class="section-title">Leave a Comment</h2>
+      
+      <div class="guestbook-wrapper">
+        <div class="guestbook-form-card">
+          <h3>Feedback Form</h3>
+          <p>Have questions or comments about the Course Rec Model? Send a live message here.</p>
+          
+          <div class="typing-indicator" id="typing-indicator-div"></div>
+          
+          <form id="comment-form-widget">
+            <div class="form-group">
+              <label for="comment-username-input">Your Name</label>
+              <input type="text" id="comment-username-input" class="form-input" placeholder="e.g. Jane Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="comment-text-area">Message</label>
+              <textarea id="comment-text-area" rows="4" class="form-textarea" placeholder="Write your feedback..." required></textarea>
+            </div>
+            <button type="submit" id="comment-submit-btn" class="btn btn-primary" style="width: 100%;">
+              Broadcast Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+        
+        <div class="comments-display-wrapper">
+          <div class="comments-display" id="live-comments-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+      <span class="copyright">&copy; 2026 Rojin Roy. All rights reserved.</span>
+      <ul class="footer-nav">
+        <li><a href="index.html#hero">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#guestbook">Guestbook</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Script links -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
+  
+  <!-- Reuse our main socket app scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
