@@ -85,7 +85,7 @@ export default function Project2() {
     <>
       <BackgroundGlow />
       
-      <main className="min-h-screen py-24 relative">
+      <main className="min-h-screen py-24 pt-28 sm:pt-24 relative">
         <div className="container max-w-5xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

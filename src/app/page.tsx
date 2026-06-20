@@ -108,11 +108,11 @@ const ProjectImageSlider = ({ imgs, title, onEnlarge }: { imgs: string[], title:
         ))}
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows — always visible on touch/mobile, hover-only on desktop */}
       {activeIndex > 0 && (
         <button
           onClick={(e) => { e.stopPropagation(); scroll('left'); }}
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all opacity-0 group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all md:opacity-0 md:group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
@@ -120,7 +120,7 @@ const ProjectImageSlider = ({ imgs, title, onEnlarge }: { imgs: string[], title:
       {activeIndex < imgs.length - 1 && (
         <button
           onClick={(e) => { e.stopPropagation(); scroll('right'); }}
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all opacity-0 group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all md:opacity-0 md:group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
@@ -411,10 +411,10 @@ export default function Home() {
       <DynamicIslandNav />
 
       {/* 1. HERO SECTION */}
-      <section id="hero" className="min-h-screen flex items-center justify-center pt-24 relative">
-        <div className="container max-w-6xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section id="hero" className="min-h-screen flex items-center justify-center pt-28 sm:pt-24 relative">
+        <div className="container max-w-6xl px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <motion.div 
-            className="lg:col-span-7 flex flex-col items-start text-left"
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -434,23 +434,23 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <a href="#projects" className="px-6 py-3 rounded-full bg-white text-bg-primary hover:bg-white/95 text-sm font-bold shadow-[0_8px_30px_rgb(255,255,255,0.15)] flex items-center justify-center gap-2 hover:scale-105 active:scale-100 transition-all duration-300">
+              <a href="#projects" className="px-6 py-3.5 sm:py-3 rounded-full bg-white text-bg-primary hover:bg-white/95 text-sm font-bold shadow-[0_8px_30px_rgb(255,255,255,0.15)] flex items-center justify-center gap-2 hover:scale-105 active:scale-100 transition-all duration-300">
                 Explore Work <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#contact" className="px-6 py-3 rounded-full border border-white/10 hover:border-white/20 text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-white/5 hover:scale-105 active:scale-100 transition-all duration-300">
+              <a href="#contact" className="px-6 py-3.5 sm:py-3 rounded-full border border-white/10 hover:border-white/20 text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-white/5 hover:scale-105 active:scale-100 transition-all duration-300">
                 Let&apos;s Talk
               </a>
             </div>
           </motion.div>
           
           <motion.div 
-            className="lg:col-span-5 flex justify-center relative"
+            className="lg:col-span-5 flex justify-center relative order-first lg:order-last"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Liquid Glass Profile Frame */}
-            <div className="relative w-[260px] h-[260px] min-[380px]:w-72 min-[380px]:h-72 sm:w-80 sm:h-80 rounded-full p-2.5 bg-gradient-to-tr from-white/10 to-white/5 border border-white/15 shadow-2xl flex items-center justify-center backdrop-blur-xl">
+            <div className="relative w-[220px] h-[220px] min-[380px]:w-64 min-[380px]:h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-2.5 bg-gradient-to-tr from-white/10 to-white/5 border border-white/15 shadow-2xl flex items-center justify-center backdrop-blur-xl mx-8">
                 <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/5 bg-bg-secondary">
                   <NextImage
                     src="/assets/profile-pic.jpg"
@@ -463,15 +463,15 @@ export default function Home() {
                   />
                 </div>
               
-              {/* Floating orbital badges */}
-              <div className="absolute -top-3 -left-3 w-12 h-12 rounded-full glass-panel flex items-center justify-center shadow-lg animate-float-slow border border-white/10">
-                <Code className="w-5 h-5 text-[#61dbfb]" />
+              {/* Floating orbital badges — constrained so they stay inside viewport */}
+              <div className="absolute -top-2 left-2 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center shadow-lg animate-float-slow border border-white/10">
+                <Code className="w-4 h-4 sm:w-5 sm:h-5 text-[#61dbfb]" />
               </div>
-              <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full glass-panel flex items-center justify-center shadow-lg animate-float-medium border border-white/10">
-                <Smartphone className="w-5 h-5 text-[#a855f7]" />
+              <div className="absolute -bottom-1 right-2 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center shadow-lg animate-float-medium border border-white/10">
+                <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-[#a855f7]" />
               </div>
-              <div className="absolute top-1/2 -right-6 w-12 h-12 rounded-full glass-panel flex items-center justify-center shadow-lg animate-float-fast border border-white/10">
-                <Sparkles className="w-5 h-5 text-accent" />
+              <div className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center shadow-lg animate-float-fast border border-white/10">
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
               </div>
             </div>
           </motion.div>
@@ -774,7 +774,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Experience & Milestones</h2>
           </div>
 
-          <div className="relative pl-6 sm:pl-8 border-l border-white/10 flex flex-col gap-10 max-w-2xl mx-auto text-left">
+          <div className="relative pl-8 sm:pl-10 border-l border-white/10 flex flex-col gap-10 max-w-2xl mx-auto text-left">
             {milestones.map((mile, idx) => (
               <motion.div 
                 key={mile.title}
@@ -785,11 +785,11 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
                 {/* Node dot glow */}
-                <div className="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full bg-bg-primary border-2 border-primary flex items-center justify-center">
+                <div className="absolute -left-[2.15rem] sm:-left-[2.65rem] top-1.5 w-4 h-4 rounded-full bg-bg-primary border-2 border-primary flex items-center justify-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 </div>
 
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className="px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 text-xxs font-bold text-primary">{mile.year}</span>
                   <span className="text-xxs text-text-muted font-semibold">{mile.location}</span>
                 </div>
@@ -1087,18 +1087,18 @@ export default function Home() {
                     e.stopPropagation();
                     setLightboxIndex((prev) => (prev === 0 ? lightboxImages.length - 1 : prev - 1));
                   }}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
+                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     setLightboxIndex((prev) => (prev === lightboxImages.length - 1 ? 0 : prev + 1));
                   }}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
+                  className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </>
             )}

@@ -125,7 +125,7 @@ export default function Project6() {
     <>
       <BackgroundGlow />
       
-      <main className="min-h-screen py-24 relative">
+      <main className="min-h-screen py-24 pt-28 sm:pt-24 relative">
         <div className="container max-w-5xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -221,11 +221,11 @@ export default function Project6() {
                     ))}
                   </div>
 
-                  {/* Nav Arrows */}
+                  {/* Nav Arrows — always visible on mobile/touch */}
                   {activeSlide > 0 && (
                     <button
                       onClick={(e) => { e.stopPropagation(); scrollSlider('left'); }}
-                      className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all opacity-0 group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
+                      className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all md:opacity-0 md:group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
@@ -233,7 +233,7 @@ export default function Project6() {
                   {activeSlide < projectImages.length - 1 && (
                     <button
                       onClick={(e) => { e.stopPropagation(); scrollSlider('right'); }}
-                      className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all opacity-0 group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all md:opacity-0 md:group-hover/slider:opacity-100 shadow-md z-20 cursor-pointer"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
@@ -422,18 +422,18 @@ export default function Project6() {
                     e.stopPropagation();
                     setLightboxIndex((p) => (p === 0 ? projectImages.length - 1 : p - 1));
                   }}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
+                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     setLightboxIndex((p) => (p === projectImages.length - 1 ? 0 : p + 1));
                   }}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
+                  className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 text-white/80 hover:text-white flex items-center justify-center transition-all z-[110] cursor-pointer"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </>
             )}
