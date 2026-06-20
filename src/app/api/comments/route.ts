@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/dbConnect';
-import Comment from '@/lib/models/Comment';
+
+export const dynamic = 'force-dynamic';
 
 // GET: Retrieve all comments from the database
 export async function GET() {
   try {
+    const dbConnect = (await import('@/lib/dbConnect')).default;
+    const Comment = (await import('@/lib/models/Comment')).default;
+
     await dbConnect();
     // Retrieve comments, sorted by newest first
     const comments = await Comment.find({}).sort({ createdAt: -1 });
@@ -21,6 +24,9 @@ export async function GET() {
 // POST: Save a new comment to the database
 export async function POST(request: Request) {
   try {
+    const dbConnect = (await import('@/lib/dbConnect')).default;
+    const Comment = (await import('@/lib/models/Comment')).default;
+
     await dbConnect();
     const body = await request.json();
     const { username, comment } = body;
